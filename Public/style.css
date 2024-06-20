@@ -1,0 +1,164 @@
+:root
+{
+    --primary-color:#7469B6;
+    --light-1:#AD88C6;
+    --light-2:#E1AFD1;
+    --light-3:#FFE6E6;
+    --dim : #c7c1c1;
+    --light : #6e6767;
+
+}
+body{
+    font-size: 18px;
+    font-weight: 600;
+    /* font-family: system-ui; */
+    
+    font-family: cursive;
+}
+i{
+    font-size: 29px;
+}
+a{
+    text-decoration: none;
+}
+.btn{
+    background-color: var(--light-1);
+    padding: 0.5rem 1.5rem;
+    border-radius: 25px;
+    color: #fff;
+}
+.btn:hover{
+    background-color: var(--light-2);
+    color: #000;
+}
+.btn-second{
+    color: #000;
+    background-color: var(--light-3);
+    padding: 0.5rem 1.5rem;
+    border-radius: 25px;
+    font-size: 16px;
+    border: none;
+}
+.btn-second:hover{
+    background-color: var(--light-1);
+    color: #fff;
+}
+.light{
+    color: var(--light);
+}
+.dim{
+    color: var(--dim);
+}
+hr{
+    height: 2px !important;
+}
+.w-100{
+    width: 100% !important;
+}
+/* -------------------- Navbar style --------------  */
+.navbar{
+    background-color: var(--light-3);
+}.navbar-brand img{
+    width: 5.5rem;
+}
+.navbar{
+    border: 1px solid --light-3;
+    box-shadow: 1px 1px 5px var(--light-3);
+}
+.small{
+    font-size: 14px;
+}
+.green{
+    color: green;
+}
+.nav-link:hover{
+    color: var(--primary-color) !important;
+    transform: scale(1.1);
+}
+/* -------------- Hro section style -------  */
+
+#hero .row
+{
+display: flex; justify-content: center; align-items: center;
+}
+#hero h1{
+    font-size: 45px;
+}.hero-head-div {
+    padding: 7rem;
+}
+.hero-head-div p{
+    color: var(--dim);
+}
+
+/* ----------------- Pricing styles ----------------  */
+#pricing .row{
+    display: flex;
+justify-content: space-evenly;
+}
+.price-card{
+    /* border: 1px solid black; */
+    border-radius: 25px;
+    padding: 2rem 3rem;
+    background-color: #d1c2d8;
+    color: #fff;
+}
+
+.card-2 {
+    background-color: #AD88C6;
+}
+.card-3{
+    background-color: #ccbada;
+}
+#pricing .btn{
+    color: var(--light-3) !important;
+}
+/* ----------------- contact us style -----------------  */
+#contact-us .form-div{
+    
+    border: 1px solid #fff;
+    background: var(--light-3);
+    border-radius: 55px;
+    padding: 5rem !important;
+}
+#contact-us .form-div:hover{
+    box-shadow: 1px 1px 10px rgb(194, 192, 192);
+}
+.form-div input{
+    border:1px solid #e2e1e1;
+    height: 40px;
+    border-radius: 10px;
+    
+}
+.form-div textarea{
+    border-radius: 10px;
+    border:1px solid #e2e1e1;
+}
+.form-div i{
+    font-size: 16px;
+}
+
+/* -------------- Footer section --------------------  */
+
+footer{
+    background-color: var(--light-2);
+}
+ul{
+    list-style-type: none;
+}
+li a{
+    color: #fff;
+    font-size: 17px;
+    text-align: center;
+}
+footer i{
+    margin-right: 8px;
+}
+.flex{
+    display: flex;
+    margin-bottom: 10px;
+    align-items: center;
+}
+.flex-img{
+    align-items: center;
+    display: flex;
+}
