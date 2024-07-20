@@ -1,9 +1,10 @@
 const {Router} = require('express')
 const todoController = require('../Controller/todoController')
+const userActive = require('../Middleware/userMiddle')
 
 const router = new Router()
 
 router.get('/',todoController.indexPage);
-router.get('/login',todoController.loginPage)
+
 
 module.exports= router;
