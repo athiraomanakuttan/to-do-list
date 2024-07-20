@@ -1,0 +1,31 @@
+<%- include('./Layout/header')  %>
+<div class="container">
+    <div class="row">
+        <div class="col-sm-12 col-lg-6 login-half">
+            <div class="border p-5 animate__animated animate__backInLeft">
+                
+                <h3 class="mb-3 text-center ">Login</h3>
+                <form action="/login" method="post" id="login-form">
+                    <div class="mb-3">
+                        <label for="exampleInputEmail1" class="form-label" >Email address</label>
+                        <input type="email" class="form-control" name="email" id="email">
+                      </div>
+                      <div class="mb-3">
+                        <label for="exampleInputEmail1" class="form-label">password</label>
+                        <input type="password" class="form-control"  name="password" id="password">
+                      </div>
+                      <button type="submit" class="btn w-100 mt-3" id="login_btn">Login</button>
+                      <hr>
+                      <span class="text-secondary">don't have an account ? <a href="/signup">Sign up</a></span>
+                </form>
+            </div>
+        </div>
+    <div class="col-sm-12 col-lg-6"><img src="../assets/login Image.png" alt="" class="img-fluid"></div>
+    </div>
+</div>
+
+<script src="../script/login.js"></script>
+<%- include('./Layout/footer')  %>
+
+
+

@@ -31,6 +31,11 @@ a{
     background-color: var(--light-2);
     color: #000;
 }
+.border
+{
+    border: 1px solid --light;
+    border-radius: 25px;
+}
 .btn-second{
     color: #000;
     background-color: var(--light-3);
@@ -161,4 +166,16 @@ footer i{
 .flex-img{
     align-items: center;
     display: flex;
+}
+
+/* ---------------------- Login page style ------------------  */
+
+.login-half{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.login-half h3{
+    color: #ea92a8;
+    /* text-align: center; */
 }

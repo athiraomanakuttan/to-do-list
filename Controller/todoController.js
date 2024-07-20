@@ -5,9 +5,15 @@ const indexPage = (req,res)=>{
 }
 
 
+// ------------------------- Load login page ---------------------- 
+
+const loginPage = async (req,res)=>{
+    res.render('loginPage')
+}
+
 
 
 module.exports= {
-    indexPage
-    
+    indexPage,
+    loginPage    
 }

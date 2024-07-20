@@ -7,4 +7,14 @@ const userActive =(req,res,next)=>{
             res.redirect('/login')
         }
 }
-module.exports = {userActive}
+
+const userCheck = (req,res,next)=>{
+    if(req.session.user)
+    {
+      res.redirect('todo-list')
+    }
+    else{
+      next();
+    }
+}
+module.exports = {userActive, userCheck}
