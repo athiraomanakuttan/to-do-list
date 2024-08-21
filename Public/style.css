@@ -70,6 +70,9 @@ hr{
     border: 1px solid --light-3;
     box-shadow: 1px 1px 5px var(--light-3);
 }
+.navbar-nav{
+    gap: 2rem !important;
+}
 .small{
     font-size: 14px;
 }
@@ -178,4 +181,72 @@ footer i{
 .login-half h3{
     color: #ea92a8;
     /* text-align: center; */
+}
+.ul
+{
+    text-decoration: underline;
+}
+.flex{
+    display: flex;
+    align-items: baseline;
+    gap: 2rem;
+}
+.light3{
+    color: var(--light-1)
+}
+.todo-task p{
+    color: var(--light);
+}
+.addBtn{
+    border: none;
+    background-color: white !important;
+}
+.flag{
+    font-size: 20px !important;
+}
+.trash{
+    color: #6e6767;
+    transition:all ease-in-out 0.2s;
+}.trash:hover{
+    color: #000;
+    transform: scale(1.3);}
+.compleated-task{
+    text-decoration: line-through;
+}
+.com-heading{
+    text-decoration: underline;
+    color: var(--light-1);
+    margin-top: 6rem !important;
+}
+.com-task{
+    text-decoration: none !important;
+}
+.flex2{
+    display: flex;
+    justify-content: left;
+}
+.task-date{
+    color: #6e6767;
+    font-size: 12px;
+}
+.flag-due
+{
+    font-size: 15px !important;
+}
+.task-div{
+    border: 1px solid var(--light-2);
+    padding: 0.5rem;
+    margin-bottom: 1rem;
+    border-radius: 9px;
+
+   
+}
+.logout-btn button{
+    background: var(--light-3);
+/* display: flex; */
+position: absolute;
+bottom: 29px;
+left: 16px;
+border: 1px solid;
+border-radius: 10px;
 }

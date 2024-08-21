@@ -2,12 +2,12 @@ const mongoose = require('mongoose');
 const { Schema } = mongoose;
 
 const listSchema = new Schema({
-    client_ip: {
+    user_id: {
         type: String,
         required: true
     },
     list: [{
-        title: {
+        task: {
             type: String,
             required: true,
             unique: true

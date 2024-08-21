@@ -1,0 +1,155 @@
+<%- include('./Layout/header')  %>
+<% 
+    let today = new Date();
+    let curr_date = today.toISOString().split('T')[0];
+%>
+<div class="main">
+    <div class="container">
+        <div class="row ">
+            <div class="col-sm-12 col-md-4 todo-task">
+                <div class="flex">
+                    <h3 class="mt-5 ul light3">To Do List </h3>
+                    <button id="addTask" data-bs-toggle="modal" data-bs-target="#exampleModal" class="addBtn"><i class="bx bx-message-square-add"></i></button>
+                </div>
+                <% if(taskList.length >0){ 
+                    for(let task of taskList)
+                    {    
+                        if(task.task_status === 0){
+                %>
+
+                <p><input type="checkbox" name="" id="" onchange="taskCompleated('<%= taskUserId %>','<%= task._id %>')">&nbsp;<%=task.task %><span>
+                    <% if(task.priority==1){%>
+                        <span class="text-danger "><i class='bx bxs-flag-alt flag'></i></span>
+                    <% } %>
+                    <span ><button id="deleteTask" onclick="deleteTask('<%= taskUserId %>','<%= task._id %>')" class="addBtn"><i class='bx bxs-trash trash flag' ></i></button></span>
+
+                </span></p>
+                   <% }
+                
+                
+                
+                    } %>
+                    <h4 class="mt-5 com-heading">Compleated task </h4>
+                    <%
+            for(let task of taskList)
+                    {    
+                        if(task.task_status === 1){
+                %>
+
+                <p class=" flex2"><i class='bx bx-check-circle text-success com-task'></i>&nbsp;<span class="compleated-task"><%=task.task %></span></p>
+                   <% }
+                
+                
+                
+            }
+
+                
+                }else{ %>
+                    <p>No task added yet !</p>
+                    <% } %>
+            </div>
+            <div class="col-sm-12 col-md-4">
+                <div class="">
+                    <h3 class="mt-5 ul light3">Upcomming Days </h3>
+                    <div>
+                    <% if(upcoming.length<=0){ %>
+                        <p>No Tasks added</p>
+                   <% }else{ 
+                    for( let task of upcoming){
+                    %>
+                    <div class="task-div">
+                        
+                    <div class="flex">
+                        <p><%= task.task %></p>
+                        <span class="task-date"><%= changeDate(task.task_date)
+                         %></span>
+                    <% if(task.priority==1){%>
+                        <span class="text-danger "><i class='bx bxs-flag-alt flag-due'></i></span>
+                    <% } %></div>
+                    </div>
+                    
+                   <% }} %>
+                </div>
+            </div>
+                
+            </div>
+            <div class="col-sm-12 col-md-4">
+                <img src="../assets/2062689.jpg" alt="" class="img-fluid">
+            </div>
+        </div>
+    </div>
+    <div class="logout-btn">
+        <button onclick="homePage()"><i class='bx bx-power-off'></i></button>
+    </div>
+
+    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <form action="/add-task" method="post">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                  <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">New Task</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                  </div>
+                  <div class="modal-body">
+                      <div class="mb-3">
+                          <input type="text" name="task" id="task" class="form-control" placeholder="New Task" required>
+                        </div>
+                        <div class="mb-3">
+                          <input type="date" class="form-control" name="task_date" id="task_date" value="<%= curr_date %>" min="<%= curr_date %>" required>
+                        </div>
+      
+                        <select class="form-select" aria-label="Default select example" required name="priority" id="priority">
+                          <option value="1">High</option>
+                          <option value="0" selected>Normal</option>
+                          <option value="2">Low</option>
+                        </select>
+                  </div>
+                  <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    <button type="submit" class="btn btn-primary">Save Task</button>
+                  </div>
+                </div>
+              </div>
+        </form>
+    </div>
+
+</div>
+<script>
+    document.getElementById('taskAddBtn').addEventListener('click',(event)=>{
+        event.preventDefault();
+        const newTask = document.getElementById('newTask').value;
+        fetch('/add-task',{
+            method:'POST',
+            headers:{'contnet-type':'application/json'},
+            body:JSON.stringify({newTask})
+        })
+    })
+    function taskCompleated(id,taskId)
+    {
+        fetch('/task-compleate', {
+    method: 'POST',
+    headers: {
+        'Content-Type': 'application/json',
+    },
+    body: JSON.stringify({ id,taskId }),
+}).then((data)=>{
+            console.log("success",data)
+            window.location.reload()
+        }).catch((err)=> console.log("error"))
+    }
+
+   function deleteTask(id,taskId)
+   {
+    fetch('/delete-task',{
+        method:'POST',
+        headers : {'Content-Type': 'application/json'},
+        body:JSON.stringify({id,taskId})
+    }).then(()=>window.location.reload())
+   }
+
+   function homePage()
+   {
+    window.location.href('/')
+   }
+  
+</script>
